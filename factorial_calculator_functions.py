@@ -22,5 +22,5 @@ def calculate_factorial(n):
 
 # Main program flow
 number = get_non_negative_integer()
-factorial = calculate_factorial(number)
-print(f"The factorial of {number} is: {factorial}")
+factorial_result = calculate_factorial(number)
+print(f"The factorial of {number} is: {factorial_result}")

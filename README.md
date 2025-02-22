@@ -1,7 +1,7 @@
-# 2025-ITELEC2-LAB018
+# 2025-ITELEC2-LAB021
 Week 05 - Working with Functions
 
-Laboratory # 18 - Guided Coding Exercise: Nested Functions and Reusing User-Defined Functions
+Laboratory # 21 - Group Activity # 01 - Problem 03: Factorial Calculator with Input and Calculation Functions
 
 ## **Instructions**
 
@@ -77,88 +77,63 @@ Only perform this if this is the first time you will setup your Git Environment
 
 ### **Step 3: Complete the Assignment**
 
-**Laboratory # 18 - Guided Coding Exercise: Nested Functions and Reusing User-Defined Functions**
+**Laboratory # 21 - Group Activity # 01 - Problem 03: Factorial Calculator with Input and Calculation Functions**
 
    **Objective:**
-   - Learn to break down a complex task into smaller, more manageable functions.
-   - Understand the concept of nested function calls (calling a function within another function).
-   - Practice writing functions that work together to achieve a larger goal.
-   - Reinforce the benefits of function reuse for code modularity and efficiency.
+   This challenge focuses on building a program that performs a specific mathematical calculation (factorial) while emphasizing function design and basic input handling. You will practice:
+   - Creating functions with distinct roles.
+   - Implementing a loop for iterative calculations.
+   - Handling user input and basic validation (optional extension).
+   - Returning values from functions and using them in the main program.
 
    **Desired Output:**
    ```bash
-   The sum of squares is: 29
+   Enter a non-negative integer: 6
+   The factorial of 6 is: 720
+   
+   Enter a non-negative integer: 0
+   The factorial of 0 is: 1
    ```
-   (Since 2² + 3² + 4² = 4 + 9 + 16 = 29)
    
    **Notable Observations (to be discussed after completing the exercise):**
-   - Nested Function Calls: The sum_of_squares() function calls the square() function within its loop. This is an example of a nested function call.
-   - Function Reuse: The square() function is reused multiple times within the sum_of_squares() function, demonstrating the modularity and efficiency of using functions.
-   - Breaking Down Complexity: The problem of calculating the sum of squares is broken down into smaller, more manageable functions (square and sum_of_squares), making the code easier to understand, test, and maintain.
+   - Function Decomposition: The program is divided into two functions: get_non_negative_integer for input handling and calculate_factorial for the factorial calculation. This promotes modularity and code organization.
+   - Iterative Calculation: The calculate_factorial function uses a loop to iteratively multiply numbers, which is the core logic of calculating a factorial.
+   - Base Case: The factorial function handles the base case of 0! (factorial of 0) by returning 1.
 
    **Python Best Practices**
-   - Single Responsibility Principle: Keep functions focused on a single, well-defined task. This makes your code more modular and easier to reason about.
-   - Docstrings: Write clear and concise docstrings to describe the purpose and parameters of each function.
-   - Meaningful Names: Use descriptive variable names and maintain consistency in your naming conventions.
-   - Indentation: Proper indentation is crucial for readability and to define the structure of your code, especially when using nested functions.
-   - Test Thoroughly: Test your functions individually and together to ensure they work correctly in all scenarios.
+   - Meaningful Function and Variable Names: Use descriptive names that clearly indicate the purpose of functions and variables (e.g., get_non_negative_integer, calculate_factorial, n).
+   - Docstrings: Include docstrings for each function to explain its purpose, parameters, and return value.
+   - Type Hints (Optional but Recommended): Use type hints to specify the expected data types for function parameters and return values.
+   - Input Validation (Challenge Extension): Consider adding input validation to the get_non_negative_integer function to handle cases where the user enters invalid input (e.g., negative numbers, non-numeric input). This could involve a loop and a try-except block to repeatedly prompt the user until a valid non-negative integer is entered.
+   - Test Thoroughly: Test your program with various inputs, including different non-negative integers (e.g., 0, 5, 10) and potentially invalid inputs (if you implement input validation) to ensure it works correctly in all cases.
 
-   **Step-by-Step Instructions:**
+   **Challenge Requirements:**
 
    1. Setting up: Open your preferred Python environment or Text Editor, and create a Python Script.
-      - Required Filename: `nested_functions.py`
+      - Required Filename: `factorial_calculator_functions.py`
       
-   2. Define a function to calculate the square of a number (square):
-      - Use the def keyword followed by the function name (square).
-      - Add parentheses () and include a parameter name (e.g., num) inside the parentheses. This defines the input that the function will accept.
-      - End the line with a colon :.
-      - Inside the function definition (indented), calculate the square of the num (using num * num or num ** 2).
-      - Use the return statement to return the calculated square.
-```python
-def square(num):
-    """Returns the square of the given number."""
-    return num * num  # Or num ** 2
-```
+   2. get_non_negative_integer() Function:
+      - Purpose: Obtains a non-negative integer input from the user.
+      - No parameters.
+      - Prompts the user to enter a non-negative integer.
+      - Reads and converts the input to an integer data type.
+      - (Optional) Validates the input to ensure it is greater than or equal to 0.
+      - Returns the validated non-negative integer.
       
-   3. Define a function to calculate the sum of squares (sum_of_squares):
-      - Use the def keyword followed by the function name (sum_of_squares).
-      - Add parentheses () and include a parameter name (e.g., numbers) inside the parentheses. This will be a list of numbers.
-      - End the line with a colon :.
-      - Inside the function definition (indented):
-         - Initialize a variable named total to 0. This will store the sum of squares.
-         - Use a for loop to iterate through each number (n) in the numbers list.
-         - Inside the loop, call the square() function that you defined earlier, passing n as an argument. This calculates the square of the current number.
-         - Add the returned square to the total.
-      - After the loop, use the return statement to return the calculated total.
-```python
-def sum_of_squares(numbers):
-    """Returns the sum of the squares of the numbers in the list."""
-    total = 0
-    for n in numbers:
-        total += square(n)  # Call the square function and add to total
-    return total
-```
+   3. calculate_factorial(n) Function:
+      - Purpose: Calculates the factorial of a given non-negative integer.
+      - Takes one parameter: n (non-negative integer).
+      - Handles the base case: If n is 0, return 1.
+      - For n greater than 0, uses a loop (e.g., for loop) to iterate from 1 to n (inclusive) and calculate the factorial by multiplying the numbers in each iteration.
+      - Returns the calculated factorial.
 
-   4. Define a list of numbers and call the function:
-      - After the function definitions (not indented), create a list of numbers (e.g., ``) and store it in a variable named numbers_list.
-      - Call the sum_of_squares() function, passing numbers_list as an argument. Store the returned result in a variable named result.
-```python
-numbers_list = [2, 3, 4]
-result = sum_of_squares(numbers_list)
-```
-
-   5. Print the final result:
-      - Use the print() function with an f-string to display the final result with a descriptive message.
-```python
-print(f"The sum of squares is: {result}")
-```
-
-   6. Complete Code: Combine the steps above to form the complete program.
-   7. Run the code: Execute your Python code.
-   8. Observe the output: Verify that the output matches the "Desired Output" shown above.
+   4. Main Program Flow
+      - Calls get_non_negative_integer() to get a valid input number.
+      - Calls calculate_factorial(), passing the returned number as an argument.
+      - Displays the calculated factorial to the user in a descriptive message (e.g., "The factorial of 6 is: 720").
 
    **Conclusion**
-   This exercise demonstrated the power of using nested functions and reusing user-defined functions to solve more complex problems.  You learned how to break down a task into smaller, more manageable functions and how to call functions within other functions.  By reusing functions, you can write more efficient and modular code that is easier to understand and maintain.  This approach is essential for building larger and more complex Python programs.
+   This challenge helps you practice creating functions with specific purposes and combining them to solve a mathematical problem. It also emphasizes the importance of handling user input and considering potential edge cases (like the factorial of 0). By decomposing the problem into functions and following best practices, you can create more organized, readable, and maintainable code.
 
 ### **Step 4: Push Changes to GitHub**
 Once you've completed your changes, follow these steps to upload your work to your GitHub repository.
@@ -182,7 +157,7 @@ git add .
    Write a meaningful commit message:
    
 ```bash
-git commit -m "Submitting Python Week 04 - Laboratory # 18"
+git commit -m "Submitting Python Week 05 - Laboratory # 21"
 ```
    
 4. Push your changes to GitHub:
